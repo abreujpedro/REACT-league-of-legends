@@ -1,13 +1,8 @@
 import React from "react";
 
-interface ICardAttributes {
-  champName: string;
-  champLane: string;
-  champCategory: string;
-  champRate: number;
-}
+import { IChampInterface } from "../../../interfaces/IChampInterface";
 
-const CardTopChamp: React.FC<ICardAttributes> = ({
+const CardTopChamp: React.FC<IChampInterface> = ({
   champName,
   champLane,
   champRate,
