@@ -1,7 +1,19 @@
 import React from "react";
 
-const CardChamps: React.FC = () => {
-  return <div>CardChamps</div>;
+import { IBasicChampInterface } from "../../../interfaces/IChampInterface";
+
+const CardChamps: React.FC<IBasicChampInterface> = ({
+  champName,
+  champPicture,
+}) => {
+  return (
+    <div>
+      <div>{champPicture}</div>
+      <div>
+        <h2>{champName}</h2>
+      </div>
+    </div>
+  );
 };
 
 export default CardChamps;
