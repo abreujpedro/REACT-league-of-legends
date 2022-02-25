@@ -9,7 +9,6 @@ export interface IChampInterface {
 }
 
 export interface IBasicChampInterface {
-  champId: number;
   champPicture: string;
   champName: string;
 }

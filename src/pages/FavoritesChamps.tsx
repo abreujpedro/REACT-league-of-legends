@@ -1,7 +1,13 @@
 import React from "react";
 
+import SearchChampSection from "../components/searchChampSection/SearchChampSection";
+
 const FavoritesChamps: React.FC = () => {
-  return <div>FavoritesChamps</div>;
+  return (
+    <>
+      <SearchChampSection isFavoritesPage={true} />
+    </>
+  );
 };
 
 export default FavoritesChamps;

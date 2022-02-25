@@ -9,7 +9,9 @@ const Home: React.FC = () => {
     <>
       <section>
         <main className={styles.main}>
-          <Container>Favorites Champs</Container>
+          <Container>
+            <h1>Favorites Champs</h1>
+          </Container>
         </main>
       </section>
       <section>
