@@ -13,3 +13,10 @@ export interface IBasicChampInterface {
   champPicture: string;
   champName: string;
 }
+
+export interface IChampTopInterface {
+  champName: string;
+  champLane: string;
+  champRate: number;
+  champPicture: string;
+}

@@ -1,0 +1,14 @@
+.main {
+  background-image: url("../assets/images/project-vayne-lol-league-of-legends-y5327.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -10px;
+  height: 500px;
+}
+
+.topChampsDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 400px;
+}

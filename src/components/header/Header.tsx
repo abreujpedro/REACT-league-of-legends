@@ -12,7 +12,7 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <Container>
         <div className={styles.flexItemContainer}>
-          <nav>
+          <nav className={styles.nav}>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/champs">Campeões</NavLink>
             <NavLink to="/favoriteschamps">Campões favoritos</NavLink>

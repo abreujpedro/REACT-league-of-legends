@@ -1,15 +1,16 @@
 import React from "react";
 
-import { IChampInterface } from "../../../interfaces/IChampInterface";
+import { IChampTopInterface } from "../../../interfaces/IChampInterface";
 
-const CardTopChamp: React.FC<IChampInterface> = ({
+const CardTopChamp: React.FC<IChampTopInterface> = ({
   champName,
   champLane,
   champRate,
+  champPicture,
 }) => {
   return (
     <div>
-      <div></div>
+      <div>{champPicture}</div>
       <div>
         <h3>{champName}</h3>
         <span>{champLane}</span>
