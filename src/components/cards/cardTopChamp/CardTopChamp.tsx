@@ -1,6 +1,7 @@
 import React from "react";
 
 import { IChampTopInterface } from "../../../interfaces/IChampInterface";
+import styles from "./CardTopChamp.module.css";
 
 const CardTopChamp: React.FC<IChampTopInterface> = ({
   champName,
@@ -9,7 +10,7 @@ const CardTopChamp: React.FC<IChampTopInterface> = ({
   champPicture,
 }) => {
   return (
-    <div>
+    <div className={styles.cardBackGround}>
       <div>{champPicture}</div>
       <div>
         <h3>{champName}</h3>

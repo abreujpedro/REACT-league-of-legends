@@ -1,6 +1,6 @@
 import React from "react";
 
-const FloatCard = () => {
+const FloatCard: React.FC = () => {
   return <div>FloatCard</div>;
 };
 

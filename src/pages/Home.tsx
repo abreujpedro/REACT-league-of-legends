@@ -8,7 +8,9 @@ const Home: React.FC = () => {
   return (
     <>
       <section>
-        <main className={styles.main}>Home</main>
+        <main className={styles.main}>
+          <Container>Favorites Champs</Container>
+        </main>
       </section>
       <section>
         <Container>

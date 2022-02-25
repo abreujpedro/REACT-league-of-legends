@@ -1,14 +1,14 @@
 .header {
-  display: flex;
-  justify-content: center;
   background-color: var(--main-color);
   border-bottom: 2px solid rgba(51, 51, 51, 0.25);
   height: 80px;
+  min-height: 80px;
   color: var(--second-color);
   text-transform: uppercase;
 }
 
 .flexItemContainer {
+  width: 100%;
   height: 100%;
   align-items: center;
   display: flex;

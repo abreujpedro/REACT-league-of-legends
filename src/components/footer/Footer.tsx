@@ -1,7 +1,9 @@
 import React from "react";
 
-const Footer = () => {
-  return <footer>Footer</footer>;
+import styles from "./Footer.module.css";
+
+const Footer: React.FC = () => {
+  return <footer className={styles.footer}>League of Legends</footer>;
 };
 
 export default Footer;
