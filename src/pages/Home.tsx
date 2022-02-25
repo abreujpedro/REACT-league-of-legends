@@ -9,9 +9,12 @@ const Home: React.FC = () => {
   const pictureDivRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
+    const sizeToIncrease = 200;
     const setPictureSize = () => {
       pictureMainRef.current
-        ? (pictureMainRef.current.style.width = `${window.innerWidth + 300}px`)
+        ? (pictureMainRef.current.style.width = `${
+            window.innerWidth + sizeToIncrease
+          }px`)
         : null;
     };
 
@@ -23,9 +26,10 @@ const Home: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
+    const softenerFactor = 16;
     const setScroll = (e: MouseEvent) => {
       pictureDivRef.current
-        ? (pictureDivRef.current.scrollLeft = e.pageX / 10)
+        ? (pictureDivRef.current.scrollLeft = e.pageX / softenerFactor)
         : null;
     };
 
@@ -39,15 +43,17 @@ const Home: React.FC = () => {
     <>
       <section>
         <div ref={pictureDivRef} className={styles.pictureContainer}>
-          <main className={styles.main} ref={pictureMainRef}>
-            <Container>
-              <h1>Favorites Champs</h1>
-            </Container>
-          </main>
+          <main className={styles.main} ref={pictureMainRef}></main>
         </div>
+      </section>
+      <section className={styles.favoritesTitleSection}>
+        <h1>Favorites League Of Legends</h1>
       </section>
       <section>
         <Container>
+          <div className={styles.topChampsSectionTitle}>
+            <h2>TOP 3 Champs</h2>
+          </div>
           <div className={styles.topChampsDiv}>
             <CardTopChamp
               champName="nome"
