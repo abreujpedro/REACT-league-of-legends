@@ -47,7 +47,7 @@ const Home: React.FC = () => {
         </div>
       </section>
       <section className={styles.favoritesTitleSection}>
-        <h1>Favorites League Of Legends</h1>
+        <h1>Favorites League of Legends</h1>
       </section>
       <section>
         <Container>
