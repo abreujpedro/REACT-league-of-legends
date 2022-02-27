@@ -30,6 +30,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const signOut = () => {
     setUserState(null);
     localStorage.removeItem(authTokenKey);
+    window.location.replace("http://localhost:3000");
   };
 
   React.useEffect(() => {
@@ -41,8 +42,11 @@ export const AuthProvider: React.FC = ({ children }) => {
         setUserState(response.data);
       });
     }
-    setIsLogged(Boolean(userState));
   }, []);
+
+  React.useEffect(() => {
+    setIsLogged(Boolean(userState));
+  }, [Boolean(userState)]);
 
   return (
     <AuthContext.Provider

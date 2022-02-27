@@ -7,8 +7,8 @@ import LoginButton from "../login/LoginButton";
 import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
-  const { userContext, isLogged } = useContext(AuthContext);
-  console.log(isLogged);
+  const { userContext, isLogged, signOut } = useContext(AuthContext);
+
   return (
     <header className={styles.header}>
       <Container>
@@ -18,7 +18,16 @@ const Header: React.FC = () => {
             <NavLink to="/champs">Campeões</NavLink>
             <NavLink to="/favoriteschamps">Campões favoritos</NavLink>
           </nav>
-          <div>{isLogged ? userContext?.login : <LoginButton />}</div>
+          <div>
+            {isLogged ? (
+              <>
+                <p>{userContext?.login}</p>{" "}
+                <button onClick={() => signOut()}>deslogar</button>
+              </>
+            ) : (
+              <LoginButton />
+            )}
+          </div>
         </div>
       </Container>
     </header>

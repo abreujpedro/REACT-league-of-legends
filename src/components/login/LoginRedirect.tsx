@@ -18,7 +18,7 @@ const LoginRedirect: React.FC = () => {
     const response = await api.post<IAuthResponse>("authenticate", {
       code: gitCode,
     });
-    const { token, user } = response.data;
+    const { token } = response.data;
     localStorage.setItem("@lol:token", token);
   };
   const handleURL = async (urlWithoutCode: string, gitCode: string) => {
