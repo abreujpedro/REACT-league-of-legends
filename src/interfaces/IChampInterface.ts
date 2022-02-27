@@ -19,3 +19,9 @@ export interface IChampTopInterface {
   champRate: number;
   champPicture: string;
 }
+
+export interface IChampList {
+  id: string;
+  name: string;
+  user_id: string;
+}

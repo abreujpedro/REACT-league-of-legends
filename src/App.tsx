@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styles from "./App.module.css";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import LoginRedirect from "./components/login/LoginRedirect";
 import Champs from "./pages/Champs";
 import FavoritesChamps from "./pages/FavoritesChamps";
 import Home from "./pages/Home";
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/signin/callback" element={<LoginRedirect />} />
         </Routes>
         <Footer />
       </div>

@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
+import { AuthContext } from "../../contexts/auth";
 import Container from "../container/Container";
+import LoginButton from "../login/LoginButton";
 import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
-  // TODO RECIVE DATA ABOUT LOGIN FROM API
-  const [isLogged, setIsLogged] = React.useState<boolean | null>(false);
-
+  const { userContext, isLogged } = useContext(AuthContext);
+  console.log(isLogged);
   return (
     <header className={styles.header}>
       <Container>
@@ -17,7 +18,7 @@ const Header: React.FC = () => {
             <NavLink to="/champs">Campeões</NavLink>
             <NavLink to="/favoriteschamps">Campões favoritos</NavLink>
           </nav>
-          <div>{isLogged ? "logado" : "deslogado"}</div>
+          <div>{isLogged ? userContext?.login : <LoginButton />}</div>
         </div>
       </Container>
     </header>

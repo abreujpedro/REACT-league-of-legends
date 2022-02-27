@@ -5,7 +5,7 @@ import SearchChampSection from "../components/searchChampSection/SearchChampSect
 const FavoritesChamps: React.FC = () => {
   return (
     <>
-      <SearchChampSection isFavoritesPage={true} />
+      {/* <SearchChampSection isFavoritesPage={true} /> */} <h1>fav</h1>
     </>
   );
 };

@@ -1,27 +1,42 @@
 import React from "react";
 
+import { IChampList } from "../../interfaces/IChampInterface";
 import CardChamps from "../cards/cardChamps/CardChamps";
 import Container from "../container/Container";
 import SearchBar from "../searchBar/SearchBar";
 
-const SearchChampSection: React.FC<{ isFavoritesPage?: boolean }> = ({
+interface ISearchChampSection {
+  isFavoritesPage?: boolean;
+  listChamps: IChampList[];
+}
+
+const SearchChampSection: React.FC<ISearchChampSection> = ({
   isFavoritesPage,
+  listChamps,
 }) => {
-  return (
+  return !isFavoritesPage ? (
     <main>
       <div>
         <Container>
-          <h1>
-            {isFavoritesPage ? "Meus Campeões Favoritos" : "Meus Campeões"}
-          </h1>
+          <h1>Meus Campeões</h1>
           <section>
             <SearchBar />
           </section>
-          <CardChamps champName="Name" champPicture="Foto" />
+          <ul>
+            {listChamps.map((i) => {
+              return (
+                <li key={i.id}>
+                  <CardChamps champName={i.name} champPicture="foto" />
+                </li>
+              );
+            })}
+          </ul>
         </Container>
       </div>
       <div></div>
     </main>
+  ) : (
+    <p>favorites</p>
   );
 };
 
