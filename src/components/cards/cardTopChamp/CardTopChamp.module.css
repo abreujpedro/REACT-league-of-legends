@@ -1,6 +1,31 @@
 .cardBackGround {
-  background-color: var(--main-color);
+  background-color: var(--second-color);
   width: 250px;
   height: 300px;
-  color: var(--second-color);
+  color: var(--main-color);
+  border-radius: 2px;
+  box-shadow: 0px 6px 15px rgba(66, 70, 75, 0.25);
+  transition: all 0.25s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.cardBackGround:hover {
+  box-shadow: 0px 6px 15px rgba(66, 70, 75, 0.45);
+  transition: all 0.25s;
+}
+
+.divContainer {
+  max-width: 80%;
+  width: 100%;
+}
+
+.text {
+  text-align: center;
+}
+
+.text h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
 }

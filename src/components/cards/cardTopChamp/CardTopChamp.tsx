@@ -11,13 +11,13 @@ const CardTopChamp: React.FC<IChampTopInterface> = ({
 }) => {
   return (
     <div className={styles.cardBackGround}>
-      <div>{champPicture}</div>
-      <div>
-        <h3>{champName}</h3>
-        <span>{champLane}</span>
+      <div className={styles.divContainer}>
+        <div>{champPicture}</div>
+        <div className={styles.text}>
+          <h3>{champName}</h3>
+          <span>{champLane}</span>
+        </div>
       </div>
-      <div>{champRate}</div>
-      <div>Botão</div>
     </div>
   );
 };

@@ -52,7 +52,7 @@ const Home: React.FC = () => {
       <section>
         <Container>
           <div className={styles.topChampsSectionTitle}>
-            <h2>TOP 3 Champs</h2>
+            <h2>Os seus três melhores campeões</h2>
           </div>
           <div className={styles.topChampsDiv}>
             <CardTopChamp
