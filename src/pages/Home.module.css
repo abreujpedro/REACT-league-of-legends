@@ -36,6 +36,22 @@
   row-gap: 40px;
 }
 
+.accessFavsDeslog {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 25px;
+  box-shadow: 2px 3px 15px rgba(73, 87, 99, 0.25);
+  padding: 40px 0;
+}
+
+.loginAccess {
+  background: var(--main-color);
+  border-radius: 5px;
+}
+
 @media (max-width: 950px) {
   .topChampsDiv {
     flex-direction: column;

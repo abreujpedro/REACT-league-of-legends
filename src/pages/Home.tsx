@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import CardTopChamp from "../components/cards/cardTopChamp/CardTopChamp";
 import Container from "../components/container/Container";
+import LoginButton from "../components/login/LoginButton";
+import { AuthContext } from "../contexts/auth";
 import styles from "./Home.module.css";
 
 const Home: React.FC = () => {
+  const { isLogged } = useContext(AuthContext);
   const pictureMainRef = React.useRef<HTMLElement | null>(null);
   const pictureDivRef = React.useRef<HTMLDivElement | null>(null);
 
@@ -54,26 +57,35 @@ const Home: React.FC = () => {
           <div className={styles.topChampsSectionTitle}>
             <h2>Os seus três melhores campeões</h2>
           </div>
-          <div className={styles.topChampsDiv}>
-            <CardTopChamp
-              champName="nome"
-              champPicture="foto"
-              champLane="lane"
-              champRate={3}
-            />
-            <CardTopChamp
-              champName="nome"
-              champPicture="foto"
-              champLane="lane"
-              champRate={3}
-            />
-            <CardTopChamp
-              champName="nome"
-              champPicture="foto"
-              champLane="lane"
-              champRate={3}
-            />
-          </div>
+          {isLogged ? (
+            <div className={styles.topChampsDiv}>
+              <CardTopChamp
+                champName="nome"
+                champPicture="foto"
+                champLane="lane"
+                champRate={3}
+              />
+              <CardTopChamp
+                champName="nome"
+                champPicture="foto"
+                champLane="lane"
+                champRate={3}
+              />
+              <CardTopChamp
+                champName="nome"
+                champPicture="foto"
+                champLane="lane"
+                champRate={3}
+              />
+            </div>
+          ) : (
+            <div className={styles.accessFavsDeslog}>
+              <p>Tenha acesso aos seus campeões favoritos</p>
+              <div className={styles.loginAccess}>
+                <LoginButton />
+              </div>
+            </div>
+          )}
         </Container>
       </section>
     </>

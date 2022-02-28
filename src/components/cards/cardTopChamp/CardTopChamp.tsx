@@ -6,7 +6,6 @@ import styles from "./CardTopChamp.module.css";
 const CardTopChamp: React.FC<IChampTopInterface> = ({
   champName,
   champLane,
-  champRate,
   champPicture,
 }) => {
   return (

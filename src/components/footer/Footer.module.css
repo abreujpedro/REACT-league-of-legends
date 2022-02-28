@@ -1,14 +1,26 @@
 .footer {
   background-color: var(--main-color);
-  height: 40px;
+  height: 55px;
   color: var(--second-color);
   margin-top: auto;
-  min-height: 40px;
+  min-height: 55px;
 }
 
 .divFooter {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
+}
+
+.divFooter span {
+  color: #737380;
+  font-family: monospace;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.divFooter svg:hover {
+  fill: #fff;
 }

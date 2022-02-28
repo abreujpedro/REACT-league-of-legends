@@ -38,7 +38,9 @@ const Header: React.FC = () => {
                 <div className={styles.profilePicture}>
                   <img src={userContext?.avatar_url} alt="Logo" />
                 </div>
-                <button onClick={() => signOut()}>deslogar</button>
+                <button className={styles.logOutBtn} onClick={() => signOut()}>
+                  deslogar
+                </button>
               </div>
             ) : (
               <LoginButton />
