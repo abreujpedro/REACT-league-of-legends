@@ -1,10 +1,9 @@
 .header {
   background-color: var(--main-color);
-  border-bottom: 2px solid rgba(51, 51, 51, 0.25);
   height: 80px;
   min-height: 80px;
   color: var(--second-color);
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .flexItemContainer {
@@ -22,6 +21,36 @@
 }
 
 .nav a {
-  color: var(--second-color);
   text-decoration: none;
+  color: #e1e1e6;
+  transition: all 0.25s;
+  height: 78px;
+  display: flex;
+  align-items: center;
+}
+
+.nav a:hover {
+  transition: all 0.25s;
+  color: #737380;
+  border-bottom: 2px solid #8257e5;
+}
+
+.nav .aActive {
+  border-bottom: 2px solid #8257e5;
+}
+
+.profileDiv {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.profilePicture {
+  width: 40px;
+}
+
+.profilePicture img {
+  border: solid 1.9px rgb(2, 168, 2);
+  width: 100%;
+  border-radius: 50%;
 }

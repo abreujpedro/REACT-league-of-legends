@@ -1,0 +1,20 @@
+.linkMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--second-color);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 3px;
+  transition: all 0.25s;
+}
+
+.linkMain:hover {
+  transition: all 0.25s;
+  color: #737380;
+}
