@@ -4,6 +4,7 @@ import CardTopChamp from "../components/cards/cardTopChamp/CardTopChamp";
 import Container from "../components/container/Container";
 import LoginButton from "../components/login/LoginButton";
 import { AuthContext } from "../contexts/auth";
+import { IChampList } from "../interfaces/IChampInterface";
 import { api } from "../services/api";
 import styles from "./Home.module.css";
 
@@ -12,9 +13,17 @@ const Home: React.FC = () => {
   const pictureMainRef = React.useRef<HTMLElement | null>(null);
   const pictureDivRef = React.useRef<HTMLDivElement | null>(null);
 
+  const [champList, setChampList] = React.useState<IChampList[]>([]);
+  const { authTokenKey } = useContext(AuthContext);
+
   React.useEffect(() => {
-    api.get("categories").then((response) => console.log(response.data));
-    console.log("foi");
+    const token = localStorage.getItem(authTokenKey);
+    if (token) {
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
+      api
+        .get<IChampList[]>("lasttopchamps")
+        .then((response) => setChampList(response.data));
+    }
   }, []);
 
   React.useEffect(() => {
@@ -64,28 +73,22 @@ const Home: React.FC = () => {
             <>
               <div className={styles.topChampsSectionTitle}>
                 <div>
-                  <h2>Seus três melhores campeões</h2>
+                  <h2>Seus melhores campeões</h2>
                 </div>
               </div>
               <div className={styles.topChampsDiv}>
-                <CardTopChamp
-                  champName="nome"
-                  champPicture="foto"
-                  champLane="lane"
-                  champRate={3}
-                />
-                <CardTopChamp
-                  champName="nome"
-                  champPicture="foto"
-                  champLane="lane"
-                  champRate={3}
-                />
-                <CardTopChamp
-                  champName="nome"
-                  champPicture="foto"
-                  champLane="lane"
-                  champRate={3}
-                />
+                <ul className={styles.topChampsList}>
+                  {champList.map((i) => {
+                    return (
+                      <li key={i.id}>
+                        <CardTopChamp
+                          champName={i.name}
+                          champPicture={i.picture_url}
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </>
           ) : (
