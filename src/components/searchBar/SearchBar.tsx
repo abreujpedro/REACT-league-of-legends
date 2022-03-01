@@ -2,32 +2,22 @@ import React from "react";
 
 import styles from "./SearchBar.module.css";
 
-const SearchBar: React.FC = () => {
+interface ISearchBar {
+  listStyles: { name: string }[] | null;
+}
+
+const SearchBar: React.FC<ISearchBar> = ({ listStyles }) => {
   return (
     <nav className={styles.mainSearch}>
       <div>Search</div>
       <ul className={styles.positionList}>
-        <li>
-          <button>Todos</button>
-        </li>
-        <li>
-          <button>Assasinos</button>
-        </li>
-        <li>
-          <button>Lutadores</button>
-        </li>
-        <li>
-          <button>Magos</button>
-        </li>
-        <li>
-          <button>Atiradores</button>
-        </li>
-        <li>
-          <button>Suportes</button>
-        </li>
-        <li>
-          <button>Tanques</button>
-        </li>
+        {listStyles?.map((i, id) => {
+          return (
+            <li key={id}>
+              <button>{i.name}</button>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

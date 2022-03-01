@@ -5,14 +5,16 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+button,
+a {
+  font-family: "Roboto", sans-serif;
 }
 
 :root {
-  --main-color: rgb(29, 29, 29);
+  --main-color: rgb(32, 32, 36);
   --second-color: rgb(255, 255, 255);
+  --purple-light-color: rgb(124, 98, 212);
+  --bg-light-black: rgb(18, 18, 20);
 }
 
 * {

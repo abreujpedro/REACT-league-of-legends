@@ -8,9 +8,7 @@ import LoginRedirect from "./components/login/LoginRedirect";
 import Champs from "./pages/Champs";
 import FavoritesChamps from "./pages/FavoritesChamps";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import Register from "./pages/Register";
 
 const App: React.FC = () => {
   return (
@@ -21,9 +19,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/champs" element={<Champs />} />
           <Route path="favoritesChamps" element={<FavoritesChamps />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/signin/callback" element={<LoginRedirect />} />
         </Routes>
         <Footer />

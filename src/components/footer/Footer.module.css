@@ -22,5 +22,5 @@
 }
 
 .divFooter svg:hover {
-  fill: #fff;
+  fill: var(--second-color);
 }

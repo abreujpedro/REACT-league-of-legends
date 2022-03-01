@@ -52,32 +52,36 @@ const Home: React.FC = () => {
       <section className={styles.favoritesTitleSection}>
         <h1>Favorites League of Legends</h1>
       </section>
-      <section>
+      <section className={isLogged ? styles.secondSection : ""}>
         <Container>
-          <div className={styles.topChampsSectionTitle}>
-            <h2>Os seus três melhores campeões</h2>
-          </div>
           {isLogged ? (
-            <div className={styles.topChampsDiv}>
-              <CardTopChamp
-                champName="nome"
-                champPicture="foto"
-                champLane="lane"
-                champRate={3}
-              />
-              <CardTopChamp
-                champName="nome"
-                champPicture="foto"
-                champLane="lane"
-                champRate={3}
-              />
-              <CardTopChamp
-                champName="nome"
-                champPicture="foto"
-                champLane="lane"
-                champRate={3}
-              />
-            </div>
+            <>
+              <div className={styles.topChampsSectionTitle}>
+                <div>
+                  <h2>Seus três melhores campeões</h2>
+                </div>
+              </div>
+              <div className={styles.topChampsDiv}>
+                <CardTopChamp
+                  champName="nome"
+                  champPicture="foto"
+                  champLane="lane"
+                  champRate={3}
+                />
+                <CardTopChamp
+                  champName="nome"
+                  champPicture="foto"
+                  champLane="lane"
+                  champRate={3}
+                />
+                <CardTopChamp
+                  champName="nome"
+                  champPicture="foto"
+                  champLane="lane"
+                  champRate={3}
+                />
+              </div>
+            </>
           ) : (
             <div className={styles.accessFavsDeslog}>
               <p>Tenha acesso aos seus campeões favoritos</p>

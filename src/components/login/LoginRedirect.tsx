@@ -1,6 +1,7 @@
 import React from "react";
 
 import { api } from "../../services/api";
+import styles from "./LoginRedirect.module.css";
 
 interface IAuthResponse {
   token: string;
@@ -33,7 +34,13 @@ const LoginRedirect: React.FC = () => {
     handleURL(urlWithoutCode, gitCode);
   }, []);
 
-  return <div>LoginRedirect</div>;
+  return (
+    <div className={styles.bodyDiv}>
+      <h1>
+        Carregando<br></br>a plataforma
+      </h1>
+    </div>
+  );
 };
 
 export default LoginRedirect;

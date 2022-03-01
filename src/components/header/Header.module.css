@@ -50,7 +50,7 @@
 }
 
 .profilePicture img {
-  border: solid 2px rgb(255, 255, 255);
+  border: solid 2px var(--second-color);
   width: 100%;
   border-radius: 50%;
 }
@@ -58,7 +58,7 @@
 .logOutBtn {
   border-radius: 5px;
   padding: 12px 20px;
-  background: rgb(124, 98, 212);
+  background: var(--purple-light-color);
   border: none;
   color: var(--second-color);
   text-transform: uppercase;
