@@ -1,0 +1,26 @@
+.cardDiv {
+  max-width: 250px;
+  width: 100%;
+  background-color: var(--purple-light-color);
+  color: var(--second-color);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.imgDiv {
+  width: 100%;
+}
+
+.imgDiv img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.textDiv {
+  padding: 15px 20px;
+}
+
+.textDiv h2 {
+  text-transform: capitalize;
+}

@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { AuthContext } from "../../../contexts/auth";
+import { api } from "../../../services/api";
 import styles from "./AddChamp.module.css";
 interface IAddChamp {
   listStyles: { name: string }[] | null;
-  setCreate: (arg: boolean) => void;
 }
-const AddChamp: React.FC<IAddChamp> = ({ listStyles, setCreate }) => {
+const AddChamp: React.FC<IAddChamp> = ({ listStyles }) => {
   const [name, setName] = React.useState<string>("");
   const [styleName, setStyleName] = React.useState<string>("");
   const [pictureUrl, setPictureUrl] = React.useState<string>("");
   const [isFavorite, setIsFavorite] = React.useState<boolean>(false);
+
+  const { authTokenKey } = useContext(AuthContext);
+
+  const requestCallBack = () => {
+    const token = localStorage.getItem(authTokenKey);
+    if (token) {
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
+      api.post("champs", {
+        name: name,
+        is_favorite: isFavorite,
+        style_name: styleName,
+        picture_url: pictureUrl,
+      });
+    }
+  };
+
   return (
     <section className={styles.sectionMain}>
       <div>
@@ -20,7 +37,7 @@ const AddChamp: React.FC<IAddChamp> = ({ listStyles, setCreate }) => {
           <button
             className={styles.closeBtn}
             onClick={() => {
-              setCreate(false);
+              window.location.replace("http://localhost:3000/champs");
             }}
           >
             X
@@ -83,7 +100,16 @@ const AddChamp: React.FC<IAddChamp> = ({ listStyles, setCreate }) => {
           </div>
 
           <div>
-            <button className={styles.createBtn}>Criar boneco</button>
+            <button
+              className={styles.createBtn}
+              onClick={(e) => {
+                e.preventDefault();
+                requestCallBack();
+                window.location.replace("http://localhost:3000/champs");
+              }}
+            >
+              Criar boneco
+            </button>
           </div>
         </form>
       </div>

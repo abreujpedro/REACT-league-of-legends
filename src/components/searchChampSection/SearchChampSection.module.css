@@ -31,3 +31,11 @@
   background-color: rgb(102, 81, 170);
   transition: all 0.2s;
 }
+
+.cardsChampList {
+  margin-top: 50px;
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}

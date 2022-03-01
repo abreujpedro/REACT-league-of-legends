@@ -42,18 +42,21 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
                 Adicionar Campeão +
               </button>
             </div>
-            <ul>
+            <ul className={styles.cardsChampList}>
               {listChamps.map((i) => {
                 return (
                   <li key={i.id}>
-                    <CardChamps champName={i.name} champPicture="foto" />
+                    <CardChamps
+                      champName={i.name}
+                      champPicture={i.picture_url}
+                    />
                   </li>
                 );
               })}
             </ul>
           </>
         ) : (
-          <AddChamp listStyles={styleChampList} setCreate={setIsAddChampOpen} />
+          <AddChamp listStyles={styleChampList} />
         )}
       </Container>
     </main>
