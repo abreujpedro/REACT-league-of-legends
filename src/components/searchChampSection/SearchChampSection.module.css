@@ -1,5 +1,6 @@
 .main {
   height: 100%;
+  min-height: 100vh;
   background: var(--bg-light-black);
 }
 
@@ -38,4 +39,5 @@
   display: flex;
   gap: 50px;
   flex-wrap: wrap;
+  padding: 30px 0 100px 0;
 }

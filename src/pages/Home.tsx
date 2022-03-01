@@ -4,12 +4,18 @@ import CardTopChamp from "../components/cards/cardTopChamp/CardTopChamp";
 import Container from "../components/container/Container";
 import LoginButton from "../components/login/LoginButton";
 import { AuthContext } from "../contexts/auth";
+import { api } from "../services/api";
 import styles from "./Home.module.css";
 
 const Home: React.FC = () => {
   const { isLogged } = useContext(AuthContext);
   const pictureMainRef = React.useRef<HTMLElement | null>(null);
   const pictureDivRef = React.useRef<HTMLDivElement | null>(null);
+
+  React.useEffect(() => {
+    api.get("categories").then((response) => console.log(response.data));
+    console.log("foi");
+  }, []);
 
   React.useEffect(() => {
     const sizeToIncrease = 200;

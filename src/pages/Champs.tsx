@@ -8,6 +8,7 @@ import { api } from "../services/api";
 const Champs: React.FC = () => {
   const [champList, setChampList] = React.useState<IChampList[]>([]);
   const { authTokenKey } = useContext(AuthContext);
+
   React.useEffect(() => {
     const token = localStorage.getItem(authTokenKey);
     if (token) {

@@ -22,9 +22,7 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
   }> | null>(null);
 
   React.useEffect(() => {
-    api
-      .get<IChampList[]>("styles")
-      .then((response) => setStyleChampList(response.data));
+    api.get("categories").then((response) => setStyleChampList(response.data));
   }, []);
 
   const [isAddChampOpen, setIsAddChampOpen] = React.useState<boolean>(false);
@@ -61,7 +59,37 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
       </Container>
     </main>
   ) : (
-    <p>favorites</p>
+    <main className={styles.main}>
+      <Container>
+        {!isAddChampOpen ? (
+          <>
+            <h1>Meus Campeões Favoritos</h1>
+            <section>
+              <SearchBar listStyles={styleChampList} />
+            </section>
+            <div className={styles.addChampDiv}>
+              <button onClick={() => setIsAddChampOpen(true)}>
+                Adicionar Campeão +
+              </button>
+            </div>
+            <ul className={styles.cardsChampList}>
+              {listChamps.map((i) => {
+                return (
+                  <li key={i.id}>
+                    <CardChamps
+                      champName={i.name}
+                      champPicture={i.picture_url}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        ) : (
+          <AddChamp listStyles={styleChampList} />
+        )}
+      </Container>
+    </main>
   );
 };
 

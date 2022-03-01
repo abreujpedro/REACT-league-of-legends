@@ -1,6 +1,7 @@
 .bodyDiv {
   background: var(--bg-light-black);
   height: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
