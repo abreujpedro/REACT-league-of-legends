@@ -37,7 +37,9 @@ const AddChamp: React.FC<IAddChamp> = ({ listStyles }) => {
           <button
             className={styles.closeBtn}
             onClick={() => {
-              window.location.replace("http://localhost:3000/champs");
+              window.location.replace(
+                `${process.env.REACT_APP_URL_APP}/champs`
+              );
             }}
           >
             X
@@ -105,7 +107,9 @@ const AddChamp: React.FC<IAddChamp> = ({ listStyles }) => {
               onClick={(e) => {
                 e.preventDefault();
                 requestCallBack();
-                window.location.replace("http://localhost:3000/champs");
+                window.location.replace(
+                  `${process.env.REACT_APP_URL_APP}/champs`
+                );
               }}
             >
               Criar boneco

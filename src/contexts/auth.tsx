@@ -23,14 +23,13 @@ export const AuthContext = createContext({} as AuthContextData);
 export const AuthProvider: React.FC = ({ children }) => {
   const [userState, setUserState] = React.useState<IUser | null>(null);
   const [isLogged, setIsLogged] = React.useState<boolean | null>(null);
-  const clientID = "ac9d143733b43bf88e8c";
-  const signUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=${clientID}`;
+  const signUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=${process.env.REACT_APP_GITHUB_ID}`;
   const authTokenKey = "@lol:token";
 
   const signOut = () => {
     setUserState(null);
     localStorage.removeItem(authTokenKey);
-    window.location.replace("http://localhost:3000");
+    window.location.replace(`${process.env.REACT_APP_URL_APP}`);
   };
 
   React.useEffect(() => {

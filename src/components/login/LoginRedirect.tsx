@@ -25,7 +25,7 @@ const LoginRedirect: React.FC = () => {
   const handleURL = async (urlWithoutCode: string, gitCode: string) => {
     window.history.pushState({}, "", urlWithoutCode);
     await signIn(gitCode);
-    window.location.replace("http://localhost:3000");
+    window.location.replace(`${process.env.REACT_APP_URL_APP}`);
   };
 
   React.useEffect(() => {
