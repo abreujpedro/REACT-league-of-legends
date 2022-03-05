@@ -4,7 +4,7 @@ import CardTopChamp from "../components/cards/cardTopChamp/CardTopChamp";
 import Container from "../components/container/Container";
 import LoginButton from "../components/login/LoginButton";
 import { AuthContext } from "../contexts/auth";
-import { IChampList } from "../interfaces/IChampInterface";
+import { IChampListApi } from "../interfaces/IChampInterface";
 import { api } from "../services/api";
 import styles from "./Home.module.css";
 
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   const pictureMainRef = React.useRef<HTMLElement | null>(null);
   const pictureDivRef = React.useRef<HTMLDivElement | null>(null);
 
-  const [champList, setChampList] = React.useState<IChampList[]>([]);
+  const [champList, setChampList] = React.useState<IChampListApi[]>([]);
   const { authTokenKey } = useContext(AuthContext);
 
   React.useEffect(() => {
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
     if (token) {
       api.defaults.headers.common.authorization = `Bearer ${token}`;
       api
-        .get<IChampList[]>("lasttopchamps")
+        .get<IChampListApi[]>("lasttopchamps")
         .then((response) => setChampList(response.data));
     }
   }, []);

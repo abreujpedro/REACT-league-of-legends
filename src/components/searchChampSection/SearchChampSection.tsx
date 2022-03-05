@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IChampList } from "../../interfaces/IChampInterface";
+import { IChampListApi } from "../../interfaces/IChampInterface";
 import { api } from "../../services/api";
 import AddChamp from "../cards/addChamp/AddChamp";
 import CardChamps from "../cards/cardChamps/CardChamps";
@@ -10,7 +10,7 @@ import styles from "./SearchChampSection.module.css";
 
 interface ISearchChampSection {
   isFavoritesPage?: boolean;
-  listChamps: IChampList[];
+  listChamps: IChampListApi[];
 }
 
 const SearchChampSection: React.FC<ISearchChampSection> = ({
@@ -44,10 +44,7 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
               {listChamps.map((i) => {
                 return (
                   <li key={i.id}>
-                    <CardChamps
-                      champName={i.name}
-                      champPicture={i.picture_url}
-                    />
+                    <CardChamps name={i.name} pictureUrl={i.picture_url} />
                   </li>
                 );
               })}
@@ -76,10 +73,7 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
               {listChamps.map((i) => {
                 return (
                   <li key={i.id}>
-                    <CardChamps
-                      champName={i.name}
-                      champPicture={i.picture_url}
-                    />
+                    <CardChamps name={i.name} pictureUrl={i.picture_url} />
                   </li>
                 );
               })}

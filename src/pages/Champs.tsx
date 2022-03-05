@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 
 import SearchChampSection from "../components/searchChampSection/SearchChampSection";
 import { AuthContext } from "../contexts/auth";
-import { IChampList } from "../interfaces/IChampInterface";
+import { IChampListApi } from "../interfaces/IChampInterface";
 import { api } from "../services/api";
 
 const Champs: React.FC = () => {
-  const [champList, setChampList] = React.useState<IChampList[]>([]);
+  const [champList, setChampList] = React.useState<IChampListApi[]>([]);
   const { authTokenKey } = useContext(AuthContext);
 
   React.useEffect(() => {
@@ -14,7 +14,7 @@ const Champs: React.FC = () => {
     if (token) {
       api.defaults.headers.common.authorization = `Bearer ${token}`;
       api
-        .get<IChampList[]>("champs")
+        .get<IChampListApi[]>("champs")
         .then((response) => setChampList(response.data));
     }
   }, []);

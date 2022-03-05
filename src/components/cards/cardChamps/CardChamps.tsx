@@ -1,19 +1,18 @@
 import React from "react";
 
-import { IBasicChampInterface } from "../../../interfaces/IChampInterface";
 import styles from "./CardChamps.module.css";
 
-const CardChamps: React.FC<IBasicChampInterface> = ({
-  champName,
-  champPicture,
+const CardChamps: React.FC<{ name: string; pictureUrl: string }> = ({
+  name,
+  pictureUrl,
 }) => {
   return (
     <div className={styles.cardDiv}>
       <div className={styles.imgDiv}>
-        <img src={champPicture} alt={champName} />
+        <img src={pictureUrl} alt={name} />
       </div>
       <div className={styles.textDiv}>
-        <h2>{champName}</h2>
+        <h2>{name}</h2>
       </div>
     </div>
   );
