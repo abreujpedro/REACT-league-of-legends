@@ -12,15 +12,18 @@ interface ISearchChampSection {
   isFavoritesPage?: boolean;
   listChamps: IChampListApi[];
   setChampNameQuery: (arg: string) => void;
+  setCategoryNameQuery: (arg: string) => void;
 }
 
 const SearchChampSection: React.FC<ISearchChampSection> = ({
   isFavoritesPage,
   listChamps,
   setChampNameQuery,
+  setCategoryNameQuery,
 }) => {
   const [styleChampList, setStyleChampList] = React.useState<Array<{
     name: string;
+    id: string;
   }> | null>(null);
 
   React.useEffect(() => {
@@ -37,6 +40,7 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
             <section>
               <SearchBar
                 listStyles={styleChampList}
+                setCategoryNameQuery={setCategoryNameQuery}
                 setChampNameQuery={(query: string) => setChampNameQuery(query)}
               />
             </section>
@@ -69,6 +73,7 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
             <section>
               <SearchBar
                 listStyles={styleChampList}
+                setCategoryNameQuery={setCategoryNameQuery}
                 setChampNameQuery={(query: string) => setChampNameQuery(query)}
               />
             </section>

@@ -9,20 +9,24 @@ const Champs: React.FC = () => {
   const [champList, setChampList] = React.useState<IChampListApi[]>([]);
   const { authTokenKey } = useContext(AuthContext);
   const [champNameQuery, setChampNameQuery] = React.useState<string>("");
+  const [champCategoryQuery, setCategoryNameQuery] = React.useState<string>("");
 
   React.useEffect(() => {
     const token = localStorage.getItem(authTokenKey);
     if (token) {
       api.defaults.headers.common.authorization = `Bearer ${token}`;
       api
-        .get<IChampListApi[]>(`champs?champName=${champNameQuery}`)
+        .get<IChampListApi[]>(
+          `champs?champName=${champNameQuery}&category=${champCategoryQuery}`
+        )
         .then((response) => setChampList(response.data));
     }
-  }, [champNameQuery]);
+  }, [champNameQuery, champCategoryQuery]);
   return (
     <>
       {!!authTokenKey ? (
         <SearchChampSection
+          setCategoryNameQuery={setCategoryNameQuery}
           listChamps={champList}
           setChampNameQuery={(query: string) => setChampNameQuery(query)}
         />

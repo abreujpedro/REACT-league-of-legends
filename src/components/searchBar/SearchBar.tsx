@@ -3,11 +3,16 @@ import React, { ChangeEvent, useEffect } from "react";
 import styles from "./SearchBar.module.css";
 
 interface ISearchBar {
-  listStyles: { name: string }[] | null;
+  listStyles: { name: string; id: string }[] | null;
   setChampNameQuery: (arg: string) => unknown;
+  setCategoryNameQuery: (arg: string) => void;
 }
 
-const SearchBar: React.FC<ISearchBar> = ({ listStyles, setChampNameQuery }) => {
+const SearchBar: React.FC<ISearchBar> = ({
+  listStyles,
+  setChampNameQuery,
+  setCategoryNameQuery,
+}) => {
   const [valueDisplay, setValueDisplay] = React.useState<string>("");
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValueDisplay(event.target.value);
@@ -31,10 +36,13 @@ const SearchBar: React.FC<ISearchBar> = ({ listStyles, setChampNameQuery }) => {
         onChange={handleChange}
       />
       <ul className={styles.positionList}>
+        <button onClick={() => setCategoryNameQuery("")}>Todos</button>
         {listStyles?.map((i, id) => {
           return (
             <li key={id}>
-              <button>{i.name}</button>
+              <button onClick={() => setCategoryNameQuery(i.id)}>
+                {i.name}
+              </button>
             </li>
           );
         })}

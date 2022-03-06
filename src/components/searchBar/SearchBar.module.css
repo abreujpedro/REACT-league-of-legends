@@ -5,9 +5,10 @@
   min-height: 50px;
   justify-content: space-between;
   align-items: center;
-  border: solid 1px var(--second-color);
-  padding: 0 30px;
+  padding: 34px 30px;
   color: var(--second-color);
+  background: var(--main-color);
+  border-radius: 7px;
 }
 
 .positionList {
@@ -21,4 +22,20 @@
   border: none;
   cursor: pointer;
   color: var(--second-color);
+}
+
+.mainSearch input {
+  outline: 0px;
+  font-size: 16px;
+  background: rgb(18, 18, 20);
+  border-color: rgb(18, 18, 20);
+  color: var(--second-color);
+  padding: 5px 20px;
+  border-radius: 5px;
+  transition: border 0.2s ease 0s;
+  border: 2px solid rgb(40, 39, 44);
+}
+
+.mainSearch input:focus {
+  border-color: var(--purple-light-color);
 }
