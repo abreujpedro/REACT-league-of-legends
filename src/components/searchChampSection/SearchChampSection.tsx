@@ -11,11 +11,13 @@ import styles from "./SearchChampSection.module.css";
 interface ISearchChampSection {
   isFavoritesPage?: boolean;
   listChamps: IChampListApi[];
+  setChampNameQuery: (arg: string) => void;
 }
 
 const SearchChampSection: React.FC<ISearchChampSection> = ({
   isFavoritesPage,
   listChamps,
+  setChampNameQuery,
 }) => {
   const [styleChampList, setStyleChampList] = React.useState<Array<{
     name: string;
@@ -33,7 +35,10 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
           <>
             <h1>Meus Campeões</h1>
             <section>
-              <SearchBar listStyles={styleChampList} />
+              <SearchBar
+                listStyles={styleChampList}
+                setChampNameQuery={(query: string) => setChampNameQuery(query)}
+              />
             </section>
             <div className={styles.addChampDiv}>
               <button onClick={() => setIsAddChampOpen(true)}>
@@ -62,7 +67,10 @@ const SearchChampSection: React.FC<ISearchChampSection> = ({
           <>
             <h1>Meus Campeões Favoritos</h1>
             <section>
-              <SearchBar listStyles={styleChampList} />
+              <SearchBar
+                listStyles={styleChampList}
+                setChampNameQuery={(query: string) => setChampNameQuery(query)}
+              />
             </section>
             <div className={styles.addChampDiv}>
               <button onClick={() => setIsAddChampOpen(true)}>
