@@ -73,7 +73,7 @@ const Home: React.FC = () => {
             <>
               <div className={styles.topChampsSectionTitle}>
                 <div>
-                  <h2>Seus melhores campeões</h2>
+                  <h2>Seus últimos campeões favoritos</h2>
                 </div>
               </div>
               <div className={styles.topChampsDiv}>

@@ -1,0 +1,18 @@
+.divWithOutLogged {
+  background: var(--bg-light-black);
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.divWithOutLogged h1 {
+  color: rgb(225, 225, 230);
+  margin-bottom: 24px;
+  font-size: 54px;
+  line-height: 64px;
+  display: flex;
+  justify-content: center;
+}
