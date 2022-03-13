@@ -18,6 +18,7 @@ const AddChamp: React.FC<IAddChamp> = ({ listStyles }) => {
     const token = localStorage.getItem(authTokenKey);
     if (token) {
       api.defaults.headers.common.authorization = `Bearer ${token}`;
+
       api.post("champs", {
         name: name,
         is_favorite: isFavorite,
